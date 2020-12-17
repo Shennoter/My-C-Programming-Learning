@@ -1,20 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 #define LEN sizeof(struct Goods)
 int n;
-struct Goods{                 //ÉùÃ÷½á¹¹Ìå
+struct Goods{                 //å£°æ˜ç»“æ„ä½“
 	char data[40];
 	float price;
 	struct Goods* next;
 };
-struct Goods* create(void) {         //´´½¨¶¯Ì¬Á´±í
+struct Goods* create(void) {         //åˆ›å»ºåŠ¨æ€é“¾è¡¨
 	struct Goods* head, * p1, * p2;
 	n = 0;
 	p1 = p2 = (struct Goods*)malloc(LEN);
 	gets_s(p1->data,40);
 	scanf_s("%f", &(p1->price));
-	gets();
+	(void)getchar();
 	head = NULL;
 	while (p1->price != 0) {
 		n = n + 1;
@@ -24,12 +23,12 @@ struct Goods* create(void) {         //´´½¨¶¯Ì¬Á´±í
 		p1 = (struct Goods*)malloc(LEN);
 		gets_s(p1->data, 40);
 		scanf_s("%f.1", &(p1->price));
-		gets();
+		(void)getchar();
 	}
 	p2->next = NULL;
 	return(head);
 }
-void print(struct Goods* head) {          //´òÓ¡Á´±í
+void print(struct Goods* head) {          //æ‰“å°é“¾è¡¨
 	struct Goods* p;
 	p = head;
 	if (head != NULL) {
@@ -39,7 +38,7 @@ void print(struct Goods* head) {          //´òÓ¡Á´±í
 		} while (p != NULL);
 	}
 }
-void delList(struct Goods* head,int n) {  //É¾³ıÁ´±íµÚn¸ö½Úµã
+void delList(struct Goods* head,int n) {  //åˆ é™¤é“¾è¡¨ç¬¬nä¸ªèŠ‚ç‚¹
 	struct Goods* p = head, * p1;
 	for (int i = 1; i < n - 1; i++) {
 		p = p->next;
@@ -54,15 +53,15 @@ int main() {
 	void delList(struct Goods* head,int num);
 	struct Goods* head;
 	head = create();
-	printf("\n%d×éÊı¾İ·Ö±ğÎª£º\n", n);
+	printf("\n%dç»„æ•°æ®åˆ†åˆ«ä¸ºï¼š\n", n);
 	print(head);
-	for (int i = 1,j=0; i <= n-j ; i++) {   //ÒòÎªÃ¿´ÎÑ­»·É¾³ı3µÄ±¶ÊıµÄ½Úµãºó¶¼»áÖØĞÂ´ÓÍ·µ÷ÓÃÁ´±í
-		if ((i+j) % 3 == 0) {               //ËùÒÔÉ¾³ıµÄ½ÚµãÎ»ÊıÒªºóÑÓÒ»Î»£¬Ò²¾ÍÊÇÃ¿É¾³ıÒ»¸ö½Úµã¾ÍÒªj+=1
+	for (int i = 1,j=0; i <= n-j ; i++) {   //å› ä¸ºæ¯æ¬¡å¾ªç¯åˆ é™¤3çš„å€æ•°çš„èŠ‚ç‚¹åéƒ½ä¼šé‡æ–°ä»å¤´è°ƒç”¨é“¾è¡¨
+		if ((i+j) % 3 == 0) {               //æ‰€ä»¥åˆ é™¤çš„èŠ‚ç‚¹ä½æ•°è¦åå»¶ä¸€ä½ï¼Œä¹Ÿå°±æ˜¯æ¯åˆ é™¤ä¸€ä¸ªèŠ‚ç‚¹å°±è¦j+=1
 			delList(head, i);
 			j += 1;
 		}
 	}
-	printf("×îºóÊ£ÏÂµÄ½ÚµãÎª:\n");
+	printf("æœ€åå‰©ä¸‹çš„èŠ‚ç‚¹ä¸º:\n");
 	print(head);
 	return 0;
 }
