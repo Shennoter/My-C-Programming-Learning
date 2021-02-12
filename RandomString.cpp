@@ -2,9 +2,9 @@
 using namespace std;
 int main() {
 	int len,fun,mode;
-	cout << "1 -- »ìºÏ" << endl << "2 -- ´¿Êý×Ö" << endl;
+	cout << "1 -- æ··åˆ" << endl << "2 -- çº¯æ•°å­—" << endl;
 	cin >> mode;
-	cout << "ÊäÈë×Ö·û´®³¤¶È£º";
+	cout << "è¾“å…¥å­—ç¬¦ä¸²é•¿åº¦ï¼š";
 	cin >> len;
 	string arr(len, '0');
 	if (mode == 1) {
@@ -20,7 +20,6 @@ int main() {
 	else{
 		for (int i = 0; i < len; i++) {
 			arr[i] = '0' + rand() % 10;
-			cout << rand() % 10;
 		}
 	}
 	cout << arr;
