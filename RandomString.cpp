@@ -1,7 +1,9 @@
 #include<iostream>
+#include<time.h>
 using namespace std;
 int main() {
 	int len,fun,mode;
+	srand((int)time(0));
 	cout << "1 -- 混合" << endl << "2 -- 纯数字" << endl;
 	cin >> mode;
 	cout << "输入字符串长度：";
@@ -22,6 +24,9 @@ int main() {
 			arr[i] = '0' + rand() % 10;
 		}
 	}
-	cout << arr;
+	cout << arr << endl << endl;
+	cout << "按回车键退出";
+	cin.get();
+	cin.get();
 	return 0;
 }
