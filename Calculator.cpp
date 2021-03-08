@@ -19,12 +19,12 @@ int main()
 		case'/':
 			if (num2 == 0)
 			{
-				cout << "³ıÊı²»ÄÜÎª0";
+				cout << "é™¤æ•°ä¸èƒ½ä¸º0";
 				break;
 			}
 			cout << num1 / num2; break;
 		}
-		cout << "\n\n°´EnterÖØÖÃ";
+		cout << "\n\næŒ‰Enteré‡ç½®";
 		cin.get();
 		cin.get();
 	}
