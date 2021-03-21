@@ -41,7 +41,7 @@ RationalNumber::RationalNumber(int nume,int deno)
 	denominator = deno;
 	if (deno==0)
 	{
-		cout << "分母不能为0" << endl;
+		cout << "Denominator should not be zero." << endl;
 		exit(1);
 	}
 	simplify();
@@ -61,7 +61,7 @@ RationalNumber operator * (RationalNumber num1, RationalNumber num2)
 {
 	if (num1.denominator == 0 || num2.denominator == 0)
 	{
-		cout << "除数不能为0" << endl;
+		cout << "Divisor should not be zero." << endl;
 		exit(1);
 	}
 	return RationalNumber(num1.numerator * num2.denominator, num1.denominator * num2.numerator);
