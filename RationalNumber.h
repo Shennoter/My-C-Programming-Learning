@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+class RationalNumber
+{
+private:
+	int numerator;
+	int denominator;
+	int gcd(int, int);
+	void simplify();
+public:
+	RationalNumber(int,int);
+	void print();
+	friend RationalNumber operator +(RationalNumber, RationalNumber);
+	friend RationalNumber operator -(RationalNumber, RationalNumber);
+	friend RationalNumber operator *(RationalNumber, RationalNumber);
+	friend RationalNumber operator /(RationalNumber, RationalNumber);
+};
+int RationalNumber::gcd(int x, int y)
+{
+	if (x < y)
+		return gcd(y, x);
+	if (x % y != 0)
+		return gcd(x, x % y);
+	else
+		return y;
+}
+void RationalNumber::simplify()
+{
+	if (numerator)
+	{
+		int g = gcd(abs(numerator), denominator);
+		numerator /= g;
+		denominator /= g;
+	}
+	else
+		denominator = 1;
+}
+RationalNumber::RationalNumber(int nume,int deno)
+{
+	numerator = nume;
+	denominator = deno;
+	if (deno==0)
+	{
+		cout << "分母不能为0" << endl;
+		exit(1);
+	}
+	simplify();
+}
+RationalNumber operator + (RationalNumber num1, RationalNumber num2)
+{
+	return RationalNumber(num1.numerator * num2.denominator + num2.numerator * num1.denominator, num1.denominator * num2.denominator);
+}
+RationalNumber operator - (RationalNumber num1, RationalNumber num2)
+{
+	return RationalNumber(num1.numerator * num2.denominator - num2.numerator * num1.denominator, num1.denominator * num2.denominator);
+}
+RationalNumber operator * (RationalNumber num1, RationalNumber num2)
+{
+	return RationalNumber(num1.numerator * num2.numerator,num1.denominator*num2.denominator);
+}RationalNumber operator / (RationalNumber num1, RationalNumber num2)
+{
+	if (num1.denominator == 0 || num2.denominator == 0)
+	{
+		cout << "除数不能为0" << endl;
+		exit(1);
+	}
+	return RationalNumber(num1.numerator * num2.denominator, num1.denominator * num2.numerator);
+}
+void RationalNumber::print()
+{
+	if (numerator % denominator == 0)
+		cout << numerator / denominator;
+	else
+		cout << numerator << "/" << denominator;
+}
