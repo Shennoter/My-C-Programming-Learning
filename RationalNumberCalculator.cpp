@@ -3,29 +3,26 @@
 using namespace std;
 int main()
 {
-	int a, b, c, d, fun;
+	int a, b, c, d;
+	char sign, temp;
 	while (1)
 	{
 		system("cls");
-		cout << "ÊäÈëµÚÒ»¸öÓĞÀíÊı£º";
-		cin >> a >> b;
+		cout << "è¾“å…¥ç®—å¼ï¼š";
+		cin >> a >> temp >> b >> sign >> c >> temp >> d;
 		RationalNumber num1(a, b);
-		cout << "ÊäÈëµÚ¶ş¸öÓĞÀíÊı£º";
-		cin >> c >> d;
 		RationalNumber num2(c, d);
-		cout << "Ñ¡ÔñÔËËã£º1--¼Ó·¨  2--¼õ·¨  3--³Ë·¨  4--³ı·¨" << endl;
-		cin >> fun;
 		RationalNumber ans(1, 1);
-		switch (fun)
+		switch (sign)
 		{
-		case 1:ans = num1 + num2; break;
-		case 2:ans = num1 - num2; break;
-		case 3:ans = num1 * num2; break;
-		case 4:ans = num1 / num2; break;
+		case '+':ans = num1 + num2; break;
+		case '-':ans = num1 - num2; break;
+		case '*':ans = num1 * num2; break;
+		case '/':ans = num1 / num2; break;
 		}
-		cout << "´ğ°¸Îª£º";
+		cout << "ç­”æ¡ˆä¸ºï¼š";
 		ans.print();
-		cout << "\n\n°´EnterÖØÖÃ";
+		cout << "\n\næŒ‰Enteré‡ç½®";
 		cin.get();
 		cin.get();
 	}
