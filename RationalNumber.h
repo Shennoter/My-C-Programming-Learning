@@ -75,7 +75,7 @@ void RationalNumber::print()
 		cout << numerator << "/" << denominator;
 }
 
-RationalNumber operator << (ostream& outputstream, RationalNumber number)
+ostream& operator << (ostream& outputstream, RationalNumber number)
 {
 	cout << number.numerator << '/' << number.denominator;
 }
