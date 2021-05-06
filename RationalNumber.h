@@ -14,6 +14,7 @@ public:
 	friend RationalNumber operator -(RationalNumber, RationalNumber);
 	friend RationalNumber operator *(RationalNumber, RationalNumber);
 	friend RationalNumber operator /(RationalNumber, RationalNumber);
+	friend ostream& operator <<(ostream& outputStream, RationalNumber number);
 };
 int RationalNumber::gcd(int x, int y)
 {
@@ -72,4 +73,9 @@ void RationalNumber::print()
 		cout << numerator / denominator;
 	else
 		cout << numerator << "/" << denominator;
+}
+
+RationalNumber operator << (ostream& outputstream, RationalNumber number)
+{
+	cout << number.numerator << '/' << number.denominator;
 }
